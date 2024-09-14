@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Main Window</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e; /* Темно-серый фон */
+            color: #e0e0e0; /* Светлый текст */
+            user-select: none; /* Отключение выделения текста */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden; /* Убирает скроллбары */
+            position: relative; /* Для позиционирования кнопки закрытия */
+        }
+        .title-bar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 30px;
+            -webkit-app-region: drag; /* Разрешает перетаскивание окна */
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 10px;
+            background-color: #2c2c2c; /* Графитовый фон заголовка */
+            z-index: 1; /* Чтобы кнопка была поверх содержимого */
+        }
+        .close-button {
+            background: none;
+            border: none;
+            color: #e0e0e0; /* Светлый цвет текста кнопки */
+            font-size: 16px;
+            cursor: pointer;
+            padding: 5px;
+            -webkit-app-region: no-drag; /* Исключает кнопку из области перетаскивания */
+            transition: background-color 0.3s, color 0.3s; /* Плавный переход */
+        }
+        .close-button:hover {
+            color: #ffffff; /* Цвет при наведении */
+        }
+        h1 {
+            margin: 0;
+            padding: 20px;
+            font-size: 24px;
+        }
+        button {
+            background-color: #333; /* Темно-серый фон кнопки */
+            border: none;
+            color: #e0e0e0; /* Светлый цвет текста кнопки */
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px; /* Скругление углов */
+        }
+        button:hover {
+            background-color: #555; /* Светлее фон кнопки при наведении */
+        }
+    </style>
+</head>
+<body>
+<div class="title-bar">
+    <button class="close-button" onclick="window.close()">×</button>
+</div>
+<h1>Welcome to the Main Window</h1>
+<button id="open-window-btn">Open Additional Window</button>
+<script src="../../dist/renderer.js"></script>
+</body>
+</html>
