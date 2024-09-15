@@ -1,0 +1,12 @@
+{
+  "resolution": {
+    "mainWindowResolution": {
+      "width": 600,
+      "height": 600
+    },
+    "additionalWindowResolution": {
+      "width": 400,
+      "height": 300
+    }
+  }
+}

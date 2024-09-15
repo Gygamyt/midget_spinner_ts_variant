@@ -1,6 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import * as path from 'path';
 import { createAdditionalWindow } from './additional_window';
+import {getMainWindowResolution} from "./settings/settings_utils";
 
 
 let mainWindow: BrowserWindow | null;
@@ -8,18 +9,7 @@ let mainWindow: BrowserWindow | null;
 // Создание основного окна
 const createMainWindow = async () => {
 
-    mainWindow = new BrowserWindow({
-        width: 600,
-        height: 600,
-        // x: x,
-        // y: y,
-        frame: false,
-        webPreferences: {
-            preload: path.join(__dirname, 'preload.js'), // Добавьте preload, если нужно
-            nodeIntegration: true,
-            contextIsolation: false
-        }
-    });
+    mainWindow = new BrowserWindow(getMainWindowResolution());
 
     mainWindow.loadFile('components/main_window.html');
 

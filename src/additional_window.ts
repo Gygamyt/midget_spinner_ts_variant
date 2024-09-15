@@ -1,5 +1,5 @@
 import {BrowserWindow} from 'electron';
-import * as path from 'path';
+import {getAdditionalWindowSettings} from "./settings/settings_utils";
 
 let additionalWindow: BrowserWindow | null = null;
 
@@ -10,16 +10,11 @@ export const createAdditionalWindow = (parentWindow: BrowserWindow) => {
         return;
     }
 
+    const settings = getAdditionalWindowSettings();
+
     additionalWindow = new BrowserWindow({
-        width: 400,
-        height: 300,
-        parent: parentWindow,
-        modal: true,
-        frame: false,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
-        }
+        ...settings,
+        parent: parentWindow
     });
 
     additionalWindow.loadFile('components/additional_window.html');
